@@ -3,8 +3,9 @@
 import { useState } from "react";
 import { yerba, te, botanicos } from "../../helpers/productsArray";
 import { FaCircle } from "react-icons/fa";
+import Carousel from "@/components/Carousel";
 
-const Productos = () => {
+const Productos: React.FC = () => {
   type TabType = "yerba" | "te" | "botanicos";
   const [activeTab, setActiveTab] = useState<TabType>("yerba");
 
@@ -29,7 +30,7 @@ const Productos = () => {
   return (
     <>
       <h1 className="justify-self-center text-3xl text-center mb-6">
-        CARROUSEL
+        <Carousel />
       </h1>
 
       <div className="w-full max-w-4xl mx-auto mt-10">

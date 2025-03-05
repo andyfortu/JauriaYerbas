@@ -14,8 +14,26 @@
   }
 } */
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* Evita desplazamiento horizontal */
+}
+
 body {
   color: black;
   background: #d1caba;
   /* font-family: Arial, Helvetica, sans-serif; */
+}
+
+/* Cambiar color de las flechas del Swiper*/
+.swiper-button-next,
+.swiper-button-prev {
+  color: #588652 !important; /* Verde Tailwind (green-500) */
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #588652 !important; /* Verde más intenso */
 }
