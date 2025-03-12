@@ -8,31 +8,30 @@ import "swiper/css/pagination";
 import Image from "next/image";
 
 const images = [
-  "public/assets/SwiperImg1.jpg",
-  "public/assets/SwiperImg2.jpeg",
-  "public/assets/SwiperImg3.jpg",
+  "/assets/SwiperImg1.jpg",
+  "/assets/SwiperImg2.jpeg",
+  "/assets/SwiperImg3.jpg",
 ];
 
 const Carousel = () => {
   return (
-    <div className="w-screen h-screen overflow-hidden">
+    <div className="w-screen h-screen overflow-hidden relative">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
-        spaceBetween={0} // No queremos espacio entre slides
-        slidesPerView={1} // Solo 1 imagen por vista
+        spaceBetween={0}
+        slidesPerView={1}
         navigation
         pagination={{ clickable: true }}
         autoplay={{ delay: 3000 }}
         className="w-full h-full"
       >
         {images.map((src, index) => (
-          <SwiperSlide key={index} className="flex justify-center items-center">
+          <SwiperSlide key={index} className="relative w-full h-full">
             <Image
               src={src}
               alt={`Slide ${index + 1}`}
-              width={50}
-              height={50}
-              className="w-full h-full object-cover"
+              fill
+              className="object-contain"
             />
           </SwiperSlide>
         ))}

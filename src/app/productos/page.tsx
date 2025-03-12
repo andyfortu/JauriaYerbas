@@ -29,9 +29,9 @@ const Productos: React.FC = () => {
 
   return (
     <>
-      <h1 className="justify-self-center text-3xl text-center mb-6">
+      <div className="mb-6">
         <Carousel />
-      </h1>
+      </div>
 
       <div className="w-full max-w-4xl mx-auto mt-10">
         {/* Solapas */}
