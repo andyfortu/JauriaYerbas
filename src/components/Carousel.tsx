@@ -13,7 +13,7 @@ const images = [
   "/assets/SwiperImg3.jpg",
 ];
 
-const Carousel = () => {
+const Carousel: React.FC = () => {
   return (
     <div className="w-screen h-screen overflow-hidden relative">
       <Swiper
