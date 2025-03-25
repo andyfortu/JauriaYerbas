@@ -11,11 +11,12 @@ const images = [
   "/assets/SwiperImg1.jpg",
   "/assets/SwiperImg2.jpeg",
   "/assets/SwiperImg3.jpg",
+  "/assets/banner.png",
 ];
 
 const Carousel: React.FC = () => {
   return (
-    <div className="w-screen h-screen overflow-hidden relative">
+    <div className="w-screen h-full overflow-hidden relative">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={0}
@@ -23,7 +24,7 @@ const Carousel: React.FC = () => {
         navigation
         pagination={{ clickable: true }}
         autoplay={{ delay: 3000 }}
-        className="w-full h-full"
+        className="w-full h-96"
       >
         {images.map((src, index) => (
           <SwiperSlide key={index} className="relative w-full h-full">
@@ -31,7 +32,7 @@ const Carousel: React.FC = () => {
               src={src}
               alt={`Slide ${index + 1}`}
               fill
-              className="object-contain"
+              className="object-cover"
             />
           </SwiperSlide>
         ))}

@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import { yerba, te, botanicos } from "../../helpers/productsArray";
-import { FaCircle } from "react-icons/fa";
-import Carousel from "@/components/Carousel";
+import ProductCard from "../../components/ProductsCard";
+
+type TabType = "yerba" | "te" | "botanicos";
 
 const Productos: React.FC = () => {
-  type TabType = "yerba" | "te" | "botanicos";
   const [activeTab, setActiveTab] = useState<TabType>("yerba");
 
   const tabs: { id: TabType; label: string }[] = [
@@ -15,13 +15,7 @@ const Productos: React.FC = () => {
     { id: "botanicos", label: "Botánicos" },
   ];
 
-  type TableData = {
-    tipo: string;
-    descripcion: string;
-    intensidad?: string;
-  }[];
-
-  const tables: Record<TabType, TableData> = {
+  const tables: Record<TabType, typeof yerba | typeof te | typeof botanicos> = {
     yerba,
     te,
     botanicos,
@@ -29,20 +23,14 @@ const Productos: React.FC = () => {
 
   return (
     <>
-      <div className="mb-6">
-        <Carousel />
-      </div>
-
-      <div className="w-full max-w-4xl mx-auto mt-10">
+      <div className="w-3/4 mx-auto my-6">
         {/* Solapas */}
         <div className="flex border-b border-darkgreen">
           {tabs.map((tab) => (
             <button
               key={tab.id}
-              className={`px-4 py-2 font-semibold ${
-                activeTab === tab.id
-                  ? "border-b-4 border-darkgreen text-darkgreen"
-                  : "text-gray-700"
+              className={`px-8 py-2 font-semibold text-lg ${
+                activeTab === tab.id ? "border-b-4 border-darkgreen text-darkgreen" : "text-gray-700"
               }`}
               onClick={() => setActiveTab(tab.id)}
             >
@@ -51,36 +39,11 @@ const Productos: React.FC = () => {
           ))}
         </div>
 
-        {/* Tabla */}
-        <div className="mt-4 overflow-hidden min-h-[400px] rounded-lg">
-          <table className="w-full border-collapse">
-            <thead>
-              <tr className="bg-darkgreen">
-                <th className="p-4 border-2 border-darkgreen">Tipo</th>
-                <th className="p-4 border-2 border-darkgreen">Descripción</th>
-              </tr>
-            </thead>
-            <tbody>
-              {tables[activeTab].map((item, index) => (
-                <tr key={index} className="border-2 border-darkgreen">
-                  <td className="p-4 border-darkgreen flex items-center gap-2">
-                    {item.intensidad === "Baja" ? (
-                      <FaCircle className="text-green-800" />
-                    ) : item.intensidad === "Media" ? (
-                      <FaCircle className="text-yellow-600" />
-                    ) : item.intensidad === "Alta" ? (
-                      <FaCircle className="text-red-700" />
-                    ) : null}
-                    <span>{item.tipo}</span>
-                  </td>
-
-                  <td className="p-4 border-2 border-darkgreen">
-                    {item.descripcion}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        {/* Renderizado de tarjetas */}
+        <div className="place-items-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
+          {tables[activeTab].map((item, index) => (
+            <ProductCard key={`${item.tipo}-${index}`} product={item} />
+          ))}
         </div>
       </div>
     </>
