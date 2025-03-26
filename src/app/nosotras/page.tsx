@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Card from "@/components/Card";
+import Card from "@/components/NosotrasCard";
 import AgusPic from "../../../public/assets/AgusPic.jpg";
-import Face2 from "../../../public/assets/NosotrasPic.jpeg";
+import AntoPic from "../../../public/assets/AntoPic.jpeg";
 import HuellaFondo from "../../../public/assets/HuellaFondo.jpeg";
 
 const Nosotras: React.FC = () => {
@@ -26,7 +26,7 @@ const Nosotras: React.FC = () => {
 
       <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-10">
         <Card name="Agus" src={AgusPic} />
-        <Card name="Anto" src={Face2} />
+        <Card name="Anto" src={AntoPic} />
       </div>
 
       {/* Texto con margen superior para no tapar la huella */}

@@ -8,10 +8,9 @@ import "swiper/css/pagination";
 import Image from "next/image";
 
 const images = [
-  "/assets/SwiperImg1.jpg",
-  "/assets/SwiperImg2.jpeg",
-  "/assets/SwiperImg3.jpg",
-  "/assets/banner.png",
+  "/assets/Swiper1.png",
+  "/assets/Swiper2.png",
+  "/assets/Swiper3.png",
 ];
 
 const Carousel: React.FC = () => {
@@ -24,7 +23,7 @@ const Carousel: React.FC = () => {
         navigation
         pagination={{ clickable: true }}
         autoplay={{ delay: 3000 }}
-        className="w-full h-96"
+        className="w-full h-80"
       >
         {images.map((src, index) => (
           <SwiperSlide key={index} className="relative w-full h-full">
