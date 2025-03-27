@@ -1,14 +1,5 @@
+import { IProductCardProps } from "@/helpers/interfaces";
 import Image from "next/image";
-
-interface Product {
-  tipo: string;
-  descripcion: string;
-  intensidad?: string;
-}
-
-interface ProductCardProps {
-  product: Product;
-}
 
 const getIntensityColor = (intensidad?: string) => {
   switch (intensidad) {
@@ -21,23 +12,40 @@ const getIntensityColor = (intensidad?: string) => {
   }
 };
 
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+const ProductCard: React.FC<IProductCardProps> = ({ product, ciudad }) => {
   return (
     <div className="w-80 rounded-lg shadow-lg overflow-hidden border border-gray-300 bg-gray-200 flex flex-col h-full">
       <div className="p-4 flex flex-col items-center flex-grow">
         <div className="w-24 h-24 relative mb-2">
           <Image
-            src="/placeholder-image.png"
-            alt="Producto"
-            layout="fill"
-            objectFit="cover"
-            className="rounded-full"
+            src={product.imagen}
+            alt={`Imagen ${product.tipo}`}
+            width={96} // Ajusta el tamaño según lo necesites
+            height={96} // Ajusta el tamaño según lo necesites
+            className="rounded-full object-cover"
           />
         </div>
         <h3 className="font-bold text-lg text-center">{product.tipo}</h3>
         <p className="text-sm text-gray-700 text-justify">
           {product.descripcion}
         </p>
+
+        <div>
+          <h4>Precio según tu ubicación</h4>
+          <p>Ubicación detectada: {ciudad}</p>
+          <p>
+            Precio kilo:{" "}
+            {ciudad === "mendoza"
+              ? product.precios?.mendoza.kilo
+              : product.precios?.buenosAires.kilo}
+          </p>
+          <p>
+            Precio medio kilo:{" "}
+            {ciudad === "mendoza"
+              ? product.precios?.mendoza.medio
+              : product.precios?.buenosAires.medio}
+          </p>
+        </div>
       </div>
       <div
         className={
