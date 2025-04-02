@@ -7,12 +7,16 @@ export interface IProduct {
   intensidad?: string;
   precios?: {
     mendoza: {
-      kilo: string;
-      medio: string;
+      kilo?: string;
+      medio?: string;
+      cien?: string;
+      diez?: string;
     };
     buenosAires: {
-      kilo: string;
-      medio: string;
+      kilo?: string;
+      medio?: string;
+      cien?: string;
+      diez?: string;
     };
   };
 }
@@ -20,4 +24,5 @@ export interface IProduct {
 export interface IProductCardProps {
   product: IProduct;
   ciudad: string;
+  ciudadCode: string;
 }

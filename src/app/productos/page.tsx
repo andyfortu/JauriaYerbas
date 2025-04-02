@@ -3,13 +3,16 @@
 import { useState, useEffect } from "react";
 import { yerba, te, botanicos } from "../../helpers/productsArray";
 import ProductCard from "../../components/ProductsCard";
+import { BsAsterisk } from "react-icons/bs";
 
 type TabType = "yerba" | "te" | "botanicos";
-type CiudadType = "mendoza" | "buenosAires";
+// type CiudadType = "Mendoza" | "Buenos Aires" | "Consultar";
+// type CiudadCodeType = "M" | "B" | "C";
 
 const Productos: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabType>("yerba");
-  const [ciudad, setCiudad] = useState<CiudadType | null>(null);
+  const [ciudad, setCiudad] = useState<string | null>(null);
+  const [ciudadCode, setCiudadCode] = useState<string | null>(null);
 
   // Función para detectar la ubicación en el cliente
   useEffect(() => {
@@ -20,15 +23,19 @@ const Productos: React.FC = () => {
 
         // Filtrar la ciudad y establecerla en el estado
         if (data.region_code === "M") {
-          setCiudad("mendoza");
-        } else if (data.region_code === "B") {
-          setCiudad("buenosAires");
+          setCiudad(data.region);
+          setCiudadCode(data.region_code);
+        } else if (data.region_code === "B" || data.region_code === "C") {
+          setCiudad(data.region);
+          setCiudadCode(data.region_code);
         } else {
-          setCiudad("mendoza"); // Default si no se detecta
+          setCiudad("Desconocida"); // Si no se detecta
+          setCiudadCode("Desconocido"); // Si no se detecta
         }
       } catch (error) {
-        console.error("Error obteniendo la ubicación:", error);
-        setCiudad("mendoza"); // Default en caso de error
+        console.error("Error obteniendo la ubicación:", error); // En caso de error
+        setCiudad("Error");
+        setCiudadCode("Error");
       }
     };
 
@@ -48,7 +55,7 @@ const Productos: React.FC = () => {
   };
 
   return (
-    <div className="w-3/4 mx-auto my-6">
+    <div className="w-3/4 m-auto">
       {/* Solapas */}
       <div className="flex border-b border-darkgreen">
         {tabs.map((tab) => (
@@ -66,16 +73,31 @@ const Productos: React.FC = () => {
         ))}
       </div>
 
+      <div>
+        {activeTab !== "botanicos" ? (
+          <p className="my-2">
+            Intensidad del sabor: <span className="text-green-800">●</span> Baja{" "}
+            <span className="text-yellow-600">●</span> Media{" "}
+            <span className="text-red-700">●</span> Alta
+          </p>
+        ) : null}
+      </div>
+
       {/* Renderizado de tarjetas */}
       <div className="place-items-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
         {tables[activeTab].map((item, index) => (
           <ProductCard
             key={`${item.tipo}-${index}`}
             product={item}
-            ciudad={ciudad || "mendoza"} // Si aún no se detectó, usar "mendoza" por defecto
+            ciudad={ciudad || "Desconocida"}
+            ciudadCode={ciudadCode || "Desconocido"} // Si aún no se detectó, usar "mendoza" por defecto
           />
         ))}
       </div>
+      <p className="flex items-center my-4 place-self-end gap-2">
+        <BsAsterisk />
+        Los precios pueden variar según la locación! Consultar ♡
+      </p>
     </div>
   );
 };

@@ -6,6 +6,8 @@ import LogoTexto from "../../public/assets/LogoTexto.png";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LuFlower } from "react-icons/lu";
+import { FaInstagram } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
 
 const Navbar: React.FC = () => {
   const pathname = usePathname();
@@ -19,7 +21,12 @@ const Navbar: React.FC = () => {
           <Image src={LogoTexto} alt="Logo Texto" width={200} height={200} />
         </Link>
       </div>
+
       <div className="flex gap-14 text-xl">
+        <p className="flex items-center gap-2">
+          {pathname === "/" ? <LuFlower /> : null}
+          <Link href={"/"}>Inicio</Link>
+        </p>
         <p className="flex items-center gap-2">
           {pathname === "/nosotras" ? <LuFlower /> : null}
           <Link href={"/nosotras"}>Sobre nosotras</Link>
@@ -28,7 +35,7 @@ const Navbar: React.FC = () => {
           {pathname === "/productos" ? <LuFlower /> : null}
           <Link href={"/productos"}>Productos</Link>
         </p>
-        <p className="flex items-center gap-2">
+        {/* <p className="flex items-center gap-2">
           {pathname === "/puntosdeventa" ? <LuFlower /> : null}
           <Link href={"/puntosdeventa"}>Puntos de venta</Link>
         </p>
@@ -43,7 +50,25 @@ const Navbar: React.FC = () => {
         <p className="flex items-center gap-2">
           {pathname === "/contacto" ? <LuFlower /> : null}
           <Link href={"/contacto"}>Contacto</Link>
-        </p>
+        </p> */}
+      </div>
+
+      <div className="flex flex-row gap-8">
+        <a
+          href="https://www.instagram.com/jauria.yerbasybotanicos/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaInstagram className="text-2xl" />
+        </a>
+
+        <a
+          href="https://wa.me/5492604123579"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaWhatsapp className="text-2xl" />
+        </a>
       </div>
     </div>
   );
