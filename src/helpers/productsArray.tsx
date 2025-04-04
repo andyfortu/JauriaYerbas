@@ -1,17 +1,26 @@
-import DF from "../../public/assets/DF.jpg";
-import DM from "../../public/assets/DM.jpg";
-import BT from "../../public/assets/BT.jpg";
-import CF from "../../public/assets/CF.webp";
+// import DF from "../../public/assets/DF.jpg";
+// import DM from "../../public/assets/DM.jpg";
+// import BT from "../../public/assets/BT.jpg";
+// import CF from "../../public/assets/CF.webp";
 
-import teVERDE from "../../public/assets/teVERDE.jpg";
-import teROJO from "../../public/assets/teROJO.jpg";
-import teNEGRO from "../../public/assets/teNEGRO.jpg";
+import DF from "../../public/assets/despalada_fina.jpg";
+import DM from "../../public/assets/despalada_media.jpg";
+import BT from "../../public/assets/barbacua.jpg";
+import CF from "../../public/assets/canchada_fina.jpg";
 
-import CEDRON from "../../public/assets/CEDRON.jpg";
-import CALENDULA from "../../public/assets/CALENDULA.jpg";
-import BURRO from "../../public/assets/BURRO.jpg";
-import MANZANILLA from "../../public/assets/MANZANILLA.jpg";
-import LAVANDA from "../../public/assets/LAVANDA.jpg";
+// import teVERDE from "../../public/assets/teVERDE.jpg";
+// import teROJO from "../../public/assets/teROJO.jpg";
+// import teNEGRO from "../../public/assets/teNEGRO.jpg";
+
+import teVERDE from "../../public/assets/te_verde.jpg";
+import teROJO from "../../public/assets/te_rojo.jpg";
+import teNEGRO from "../../public/assets/te_negro.jpg";
+
+import CEDRON from "../../public/assets/cedron.jpg";
+import CALENDULA from "../../public/assets/calendula.jpg";
+import BURRO from "../../public/assets/burrito.jpg";
+import MANZANILLA from "../../public/assets/manzanilla.jpg";
+import LAVANDA from "../../public/assets/lavanda.jpg";
 
 export const yerba = [
   {
@@ -22,12 +31,12 @@ export const yerba = [
     intensidad: "Media",
     precios: {
       mendoza: {
-        kilo: "$5480",
-        medio: "$3440",
+        kilo: "$ 5480",
+        medio: "$ 3440",
       },
       buenosAires: {
-        kilo: "$7400",
-        medio: "$4000",
+        kilo: "$ 7400",
+        medio: "$ 4000",
       },
     },
   },
@@ -39,12 +48,12 @@ export const yerba = [
     intensidad: "Baja",
     precios: {
       mendoza: {
-        kilo: "$5480",
-        medio: "$3440",
+        kilo: "$ 5480",
+        medio: "$ 3440",
       },
       buenosAires: {
-        kilo: "$7400",
-        medio: "$4000",
+        kilo: "$ 7400",
+        medio: "$ 4000",
       },
     },
   },
@@ -56,12 +65,12 @@ export const yerba = [
     intensidad: "Media",
     precios: {
       mendoza: {
-        kilo: "$6360",
-        medio: "$3840",
+        kilo: "$ 6360",
+        medio: "$ 3840",
       },
       buenosAires: {
-        kilo: "$8000",
-        medio: "$5000",
+        kilo: "$ 8000",
+        medio: "$ 5000",
       },
     },
   },
@@ -73,12 +82,12 @@ export const yerba = [
     intensidad: "Alta",
     precios: {
       mendoza: {
-        kilo: "$6680",
-        medio: "$3960",
+        kilo: "$ 6680",
+        medio: "$ 3960",
       },
       buenosAires: {
-        kilo: "$8900",
-        medio: "$5900",
+        kilo: "$ 8900",
+        medio: "$ 5900",
       },
     },
   },
@@ -93,14 +102,14 @@ export const te = [
     intensidad: "Baja",
     precios: {
       mendoza: {
-        kilo: "$6000",
-        medio: "$3000",
-        cien: "$1000",
+        kilo: "$ 6000",
+        medio: "$ 3000",
+        cien: "$ 1000",
       },
       buenosAires: {
-        kilo: "$8000",
-        medio: "$5000",
-        cien: "$2000",
+        kilo: "$ 8000",
+        medio: "$ 5000",
+        cien: "$ 2000",
       },
     },
   },
@@ -112,14 +121,14 @@ export const te = [
     intensidad: "Media",
     precios: {
       mendoza: {
-        kilo: "$6000",
-        medio: "$3000",
-        cien: "$1000",
+        kilo: "$ 6000",
+        medio: "$ 3000",
+        cien: "$ 1000",
       },
       buenosAires: {
-        kilo: "$8000",
-        medio: "$5000",
-        cien: "$2000",
+        kilo: "$ 8000",
+        medio: "$ 5000",
+        cien: "$ 2000",
       },
     },
   },
@@ -131,14 +140,14 @@ export const te = [
     intensidad: "Alta",
     precios: {
       mendoza: {
-        kilo: "$6000",
-        medio: "$3000",
-        cien: "$1000",
+        kilo: "$ 6000",
+        medio: "$ 3000",
+        cien: "$ 1000",
       },
       buenosAires: {
-        kilo: "$8000",
-        medio: "$5000",
-        cien: "$2000",
+        kilo: "$ 8000",
+        medio: "$ 5000",
+        cien: "$ 2000",
       },
     },
   },
@@ -152,7 +161,7 @@ export const botanicos = [
       "Posee propiedades ansiolíticas naturales, con efecto calmante. Es además, un excelente digestivo que ayuda a calmar cualquier dolencia estomacal.",
     precios: {
       mendoza: {
-        diez: "$600",
+        diez: "$ 600",
       },
       buenosAires: {
         diez: "Sin stock",
@@ -180,7 +189,7 @@ export const botanicos = [
       "Se usa reconocidamente para aliviar afecciones gastrointestinales. También es favorecedor en el tratamiento de resfriados y estados febriles leves. Su aroma marcado nos permite disfrutar deliciosas infusiones.",
     precios: {
       mendoza: {
-        diez: "$800",
+        diez: "$ 800",
       },
       buenosAires: {
         diez: "Sin stock",
@@ -194,7 +203,7 @@ export const botanicos = [
       "Aporta un efecto relajante que provee su compuesto químico, el linanool. Además su agradable aroma ayuda a aliviar la ansiedad y favorecer la estimulación neuronal influyendo positivamente en nuestro estado de ánimo.",
     precios: {
       mendoza: {
-        diez: "$600",
+        diez: "$ 600",
       },
       buenosAires: {
         diez: "Sin stock",
@@ -208,7 +217,7 @@ export const botanicos = [
       "Conocida ancestralmente para aliviar procesos inflamatorios a todo nivel y con carácter medicinal. Tiene un gran efecto calmante además de un delicioso aroma.",
     precios: {
       mendoza: {
-        diez: "$900",
+        diez: "$ 900",
       },
       buenosAires: {
         diez: "Sin stock",

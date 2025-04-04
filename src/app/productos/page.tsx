@@ -84,7 +84,8 @@ const Productos: React.FC = () => {
       </div>
 
       {/* Renderizado de tarjetas */}
-      <div className="place-items-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-2 sm:grid-cols-1">
+      {/* <div className="place-items-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4"> */}
         {tables[activeTab].map((item, index) => (
           <ProductCard
             key={`${item.tipo}-${index}`}
