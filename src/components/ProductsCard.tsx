@@ -1,6 +1,6 @@
 import { IProductCardProps } from "@/helpers/interfaces";
 import Image from "next/image";
-import { BiFullscreen } from "react-icons/bi";
+// import { BiFullscreen } from "react-icons/bi";
 
 const getIntensityColor = (intensidad?: string) => {
   switch (intensidad) {
